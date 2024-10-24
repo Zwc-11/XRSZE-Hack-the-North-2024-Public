@@ -1,0 +1,393 @@
+body {
+    background-color: #111218;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 725px;
+    position: relative;
+}
+
+@font-face {
+    font-family: "Dimension";
+    src: url("./assets/fonts/Dimension.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue";
+    src: url("./assets/fonts/NeueHaasDisplayMedium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Pixelify";
+    src: url("./assets/fonts/PixelifySans-SemiBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.rounded_rectangle {
+    width: 1400px;
+    height: 120px;
+    border-radius: 60px;
+    background: #181B26;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    transform-origin: center;
+    margin-top: 30px;
+    z-index: 1;
+}
+
+.midrounded_rectangle {
+    width: 1400px;
+    height: 700px;
+    border-radius: 60px;
+    background: #181B26;
+    padding: 50px 100px;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    margin-bottom: 20px;
+    transform-origin: center;
+    z-index: 1;
+}
+
+.left-menu, .right-menu {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.left-menu {
+    margin-right: auto;
+}
+
+.right-menu {
+    margin-left: auto;
+}
+
+.left-menu a, .right-menu a {
+    text-decoration: none;
+    color: #eace90;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.left-menu a:hover, .right-menu a:hover {
+    color: #f4d36a;
+    transform: scale(1.1);
+}
+
+.left-menu p, .right-menu p {
+    font-family: "Neue";
+    font-size: 20px;
+}
+
+.center-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.center-section img {
+    height: 15px;
+}
+
+.center-text {
+    color: #eace90;
+    font-family: "Dimension";
+    font-size: 80px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 5px;
+    color: #eace90;
+    font-family: "Neue";
+    font-size: 15px;
+    z-index: 1;
+}
+
+.background-logo {
+    position: absolute;
+    margin-top: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    z-index: 0;
+}
+
+.welcome-text {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #eace90;
+    font-family: "Neue";
+    font-size: 100px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.about-text {
+    margin-right: 850px;
+    margin-top: 20px;
+    color: #eace90;
+    font-family: "Neue";
+    font-size: 60px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.about-description {
+    color: #ECEAE5;
+    font-family: "Neue";
+    font-size: 30px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.about-section {
+    margin-top: 50px;
+    color: #eace90;
+    font-family: "Neue";
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    line-height: 1.8;
+}
+
+.about-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #f4d36a;
+    font-weight: bold;
+}
+
+.fitness-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-family: "Pixelify";
+    font-size: 120px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.typing-text {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-family: "Pixelify";
+    font-size: 90px;
+    white-space: nowrap;
+    z-index: 1;
+    border-right: 2px solid #ffffff;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #ffffff;
+    }
+}
+
+.camera-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-box, .camera-container {
+    width: 45%;
+    height: 100%;
+}
+
+.error-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    text-align: center; 
+    color: #eace90;
+    font-family: "Neue";
+    z-index: 1;
+    padding-left: 10px;
+    height: 100%;
+}
+
+.error-box p {
+    font-size: 36px;
+}
+
+#repCount {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#kneeToHipDistance, #currentFeedback, #status {
+    font-size: 40px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 50px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    position: relative;
+}
+
+#webcam {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.welcome-text, #exerciseButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+}
+
+#exerciseButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+}
+
+button {
+    background-color: #eace90;
+    border: none;
+    color: #111218;
+    padding: 20px 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: "Neue";
+    z-index: 10;
+}
+
+button:hover {
+    background-color: #f4d36a;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#chat-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 950px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: relative;
+}
+
+#chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#chat-form {
+    display: flex;
+    gap: 10px;
+}
+
+#message {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #eace90;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f4d36a;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Monitor - Start</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="rounded_rectangle">
+        <div class="left-menu">
+            <a href="index.html"><p>HOME</p></a>
+            <a href="about.html"><p>ABOUT</p></a>
+        </div>
+
+        <div class="center-section">
+            <img src="./assets/images/header_dots.png" alt="Header Dots Left" />
+            <p class="center-text">XRSZE</p>
+            <img src="./assets/images/header_dots.png" alt="Header Dots Right" />
+        </div>  
+
+        <div class="right-menu">
+            <a href="aichat.html"><p>AI CHAT</p></a>
+            <a href="start.html"><p>START</p></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © Hack the North 2024
+    </div>
+
+    <div class="welcome-text" id="startButtonContainer">
+        <button id="startButton">Start Workout</button>
+    </div>
+
+    <div id="exerciseButtons" style="display:none; margin-top: 20px;">
+        <button id="planksButton">Planks</button>
+        <button id="highKneeButton">High Knee</button>
+    </div>
+
+    <div class="main-container" style="display:none;" id="mainContainer">
+        <div class="error-box" id="highKneeErrorBox" style="display:none;">
+            <p id="status">Running...</p>
+            <p id="currentFeedback">Prepare for next rep</p>
+            <p id="repCount">RepCount: 0</p>
+            <p id="kneeToHipDistance">Knee-to-Hip Distance: N/A</p>
+            <p id="minKneeToHipDistance">minKneeToHipDistance: 0</p>
+        </div>
+        <div class="error-box" id="planksErrorBox" style="display:none;">
+            <p id="status">Running...</p>
+            <p id="currentFeedback">Prepare for next rep</p>
+            <p id="Timer">Timer: 0</p>
+            <p id="hipAngle">Hip Angle: N/A</p>
+            <p id="bodySlope">Body Slope: N/A</p>
+        </div>
+
+        <div class="video-container" id="camera-section">
+            <video id="webcam" width="640" height="480" autoplay playsinline></video>
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+    </div>
+    <script src="pose_estimation.js"></script>
+    <script src="planks.js"></script>
+
+    <script>
+
+        function initializeListeners() {
+            document.getElementById('startButton').addEventListener('click', function() {
+                document.getElementById('startButtonContainer').style.display = "none";  
+                document.getElementById('exerciseButtons').style.display = "block";  
+            });
+
+
+            document.getElementById('planksButton').addEventListener('click', function() {
+                document.getElementById('exerciseButtons').style.display = "none";  
+                document.getElementById('planksErrorBox').style.display = "block"; 
+                document.getElementById('highKneeErrorBox').style.display = "none"; 
+                document.getElementById('mainContainer').style.display = "flex";  
+                startPlanks(); 
+            });
+
+
+            document.getElementById('highKneeButton').addEventListener('click', function() {
+                document.getElementById('exerciseButtons').style.display = "none";  
+                document.getElementById('highKneeErrorBox').style.display = "block";  
+                document.getElementById('planksErrorBox').style.display = "none";  
+                document.getElementById('mainContainer').style.display = "flex"; 
+                startHighKneeDetection(); 
+            });
+        }
+
+        // Initialize the listeners on page load
+        document.addEventListener('DOMContentLoaded', initializeListeners);
+    </script>
+</body>
+</html>
